@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <title>My Valentine 🤍</title>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #f5f1e6, #dfe9d8);
+      font-family: 'Georgia', serif;
+      min-height: 100svh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 20px;
+      color: #4a5d4a;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.65);
+      padding: 34px 26px;
+      border-radius: 28px;
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      position: relative;
+    }
+
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+      font-weight: normal;
+    }
+
+    p {
+      font-size: 1.05em;
+      margin: 10px 0;
+      line-height: 1.4;
+    }
+
+    .soft {
+      font-style: italic;
+      color: #6b7f6b;
+    }
+
+    button {
+      margin: 14px;
+      padding: 14px 34px;
+      font-size: 1.05em;
+      border: none;
+      border-radius: 50px;
+      background-color: #a8c3a0;
+      color: #ffffff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #8fb58a;
+      transform: scale(1.05);
+    }
+
+    .no {
+      position: absolute;
+      transition: transform 0.25s ease;
+    }
+
+    /* LOGO */
+    .logo svg {
+      width: 90px;
+      height: 90px;
+    }
+
+    /* Tulip */
+    .tulip-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .tulip-btn svg {
+      width: 44px;
+      height: 44px;
+      fill: #8fae8f;
+      transition: transform 0.3s ease;
+    }
+
+    .tulip-btn:hover svg {
+      transform: scale(1.15);
+    }
+
+    /* Wine bottle */
+    .wine {
+      margin: 16px 0 6px;
+    }
+
+    .wine svg {
+      width: 110px;
+      height: 110px;
+    }
+
+    /* Ring small */
+    .ring-small svg {
+      width: 60px;
+      height: 60px;
+      opacity: 0.7;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card" id="card">
+
+    <!-- Tulip Spotify FIRST PAGE -->
+    <button class="tulip-btn"
+      onclick="window.open('https://open.spotify.com/track/34gCuhDGsG4bRPIf9bb02f?si=ga3Z1bXCRgqL_Mhue4QkDQ','_blank')"
+      aria-label="Play our song">
+      <svg viewBox="0 0 64 64">
+        <path d="M32 4c-6 6-12 10-12 18 0 6 4 10 12 10s12-4 12-10c0-8-6-12-12-18z"/>
+        <path d="M30 32h4v28h-4z"/>
+        <path d="M30 44c-10-2-14-8-18-12 8 2 14 4 18 6v6z"/>
+        <path d="M34 44c10-2 14-8 18-12-8 2-14 4-18 6v6z"/>
+      </svg>
+    </button>
+
+    <!-- LOGO -->
+    <div class="logo">
+      <svg viewBox="0 0 120 120">
+        <text x="60" y="70" text-anchor="middle"
+              font-size="64" fill="#8fae8f"
+              font-family="Georgia" font-weight="600">L</text>
+        <text x="60" y="70" text-anchor="middle"
+              font-size="64" fill="#6f8f6f"
+              font-family="Brush Script MT, cursive"
+              transform="rotate(-45 60 70)">L</text>
+      </svg>
+    </div>
+
+    <h1>My Dearest Leikiiii 🤍</h1>
+    <p class="soft">L & L 4 Ever</p>
+    <p>I want to ask you something from the heart…</p>
+
+    <button onclick="next()">Continue 🌿</button>
+  </div>
+
+  <script>
+    function next() {
+      document.getElementById("card").innerHTML = `
+        <div class="wine">
+          <svg viewBox="0 0 64 128">
+            <rect x="26" y="4" width="12" height="40" fill="#3b2b2b"/>
+            <rect x="20" y="44" width="24" height="60" rx="12" fill="#5a1f1f"/>
+            <rect x="22" y="56" width="20" height="18" fill="#7b2d2d"/>
+          </svg>
+        </div>
+
+        <div class="ring-small">
+          <svg viewBox="0 0 120 120">
+            <ellipse cx="60" cy="70" rx="35" ry="20"
+              fill="none" stroke="#b6a97a" stroke-width="4"/>
+            <polygon points="60,18 75,35 60,52 45,35"
+              fill="#f7f7f7" stroke="#cfcfcf" stroke-width="1.5"/>
+          </svg>
+        </div>
+
+        <h1>My love 🤍</h1>
+        <p class="soft">Eres única y perfecta</p>
+        <p><strong>¿Me complaces en ser tu Valentine?</strong></p>
+
+        <button onclick="yes()">Yes 🤍</button>
+        <button class="no"
+          ontouchstart="move(this)"
+          onclick="move(this)">
+          No 😅
+        </button>
+      `;
+    }
+
+    function move(btn) {
+      const x = Math.random() * 240 - 120;
+      const y = Math.random() * 160 - 80;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function yes() {
+      document.getElementById("card").innerHTML = `
+        <h1>Forever YES 🤍</h1>
+        <p class="soft">with you, my sweet love</p>
+        <p>You are my today, my tomorrow, and every dream I choose.</p>
+      `;
+    }
+  </script>
+
+</body>
+</html>
